@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kythera Jam - Express Yourself Through Music</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --violet: #7C3AED;
+            --dark-violet: #5B21B6;
+            --light-violet: #A78BFA;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gray: #F5F5F5;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .small-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .logo {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--violet);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: var(--black);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4A4A4A;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--gray);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            color: var(--violet);
+            font-weight: 600;
+        }
+
+        /* Thursday Jam Info */
+        .jam-info {
+            background: linear-gradient(135deg, var(--violet) 0%, var(--dark-violet) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .jam-info h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .jam-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .jam-detail {
+            padding: 20px;
+        }
+
+        .jam-detail strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .jam-detail p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Principles */
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .principle-card {
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 8px;
+            border: 2px solid var(--violet);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+        }
+
+        .principle-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .principle-card p {
+            color: #4A4A4A;
+            font-size: 1.05rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--gray);
+        }
+
+        .signup-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--black);
+            font-size: 1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #E5E5E5;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--violet);
+        }
+
+        .checkbox-group {
+            margin-top: 20px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--violet) 0%, var(--dark-violet) 100%);
+            color: var(--white);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        /* Organizations Section */
+        .organizations {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .organizations h2 {
+            color: var(--white);
+        }
+
+        .organizations p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .org-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .benefit {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .benefit h4 {
+            color: var(--light-violet);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .email-link {
+            display: inline-block;
+            background: var(--violet);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: background 0.3s ease;
+        }
+
+        .email-link:hover {
+            background: var(--dark-violet);
+        }
+
+        /* Coming Soon */
+        .coming-soon {
+            text-align: center;
+        }
+
+        .coming-soon p {
+            font-size: 1.15rem;
+            color: #4A4A4A;
+            margin-bottom: 40px;
+        }
+
+        .waitlist-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .waitlist-item {
+            background: var(--white);
+            padding: 30px 40px;
+            border-radius: 8px;
+            border: 2px solid var(--violet);
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        /* Founder Note */
+        .founder-note {
+            background: var(--white);
+            border-left: 4px solid var(--violet);
+            padding: 40px;
+            margin: 50px auto;
+            max-width: 800px;
+            font-style: italic;
+            color: #4A4A4A;
+            line-height: 1.8;
+        }
+
+        .founder-note p {
+            margin-bottom: 20px;
+        }
+
+        .founder-signature {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--black);
+            margin-top: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .signup-form {
+                padding: 30px 20px;
+            }
+
+            .jam-info {
+                padding: 40px 20px;
+            }
+
+            .principles {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #10B981;
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA1YSURBVHhe7d0/bBvXHwfw9+hRpEhRFCVSEkVRlEhRFCVSpEhRlEiRIkWKFClSpEiRIkWKFClSpEiRIkWKFClSpEiRIkWKFClSpEiRIkWKFClSpEiRIkWKFClSpEiRIkWKlP+f3nvnHUmWZFn2P8n3A3zAv3fvyHv37n3v3Ts/+Zd/+Ze/AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwH/EL7/88rcPPvjgb++///7fjh49+rejR4/+7cMPP/zbBx988De+BgCA/+Dnn3/+28cff/y3jz766G+ffvrp306cOPG3kydP/u3UqVN/O336dPh68uTJv504ceLvn3/++d8++eST8PWjjz762y+//PI3AID/3C+//PK3o0eP/u34x5+8fPkyLDOtBUJgHT9+/G+fffbZ3/j6/fff/+3o0aN/+/nnn/8GAP/Bzz///LePP/74bydPnnz56svPXvzyi89ffffFiy++fPn555+/On369MsTJ04EDfTs2bMXv/zyy4vffffdiz/84Q8vP/nkkxd/+tOfXv7xj398+emnfwz/Pn369KsvPv/sxS8+/+zll59/9uqLL7/4C1/z+eeff/7ii7+8eMXXfM3XfM/Xn3766Yt33333xZ/+9KcXH3/88d/Z2gMA+A94wCp/++23L+/fv//yyy+/fHnnzp2Xn3766cszZ868PHXq1Mvjx4+/PH78+Mvjx4+/PHXq1MuzZ8++vHLlyss7d+68vHnz5su7d+++/PLLL18+f/78Jb/n/v37L+/du/fy+++/f/ntt9+GoMfXfE8AgP8xtrK+/fbbF3fu3Hlx/fr1F5cvX35x6dKlFxcuXHhx/vz5F+fOnXtx7ty5F+fPn39x4cKFsLCF9fXXX7+4d+9eCFoAAP9zPKULAQsAYF8haAEAbAMELQCAbeD/F7Q+uLm8fOfM7PL66kxp9WR9aaY0u7o0M7MyO7M8MzdTnC0vza7MzC8vzS0tzy8vzi3PLc7OLhXmZpcWZhaW5pcXZxfmF+aWFhaWlxfnlxdml5dm5+eWlubmlpfm55fmF5bnlxeXlpdnF1eWluZWluZWV5cW1lYXF9fXFxY3NhfmN7cW5re3Fua2txbnd7YX5vd2FxZ2dxfnd/YWF/f2l+b29peevvvh2ae/v33u6XsXnr534dzT96+ee/r+1YtP37t6+el7Vy8+e+/Khaef/O7i0/c+ufD0/atnnr539fST964eP/n01LGTz04eO/H05LETT08effr00WNPHz365OnTR44/ffro0WdPHj728skjx56dPXriydkjx/90sXLq6aXKyadXKydfXKucfP5ZdfrZp9Xpp7ern+1cr+68rO48f3h98/mXX208//rr7ZffXN68+93lze/vr+x+/2Dlhx9Wfnj48x9+/OPdn/74x8c/PnrweMvP4OJ//qeG8P+Qr/+P+Pp/R5YtWJ6NfV7ZeD47t/x4fmH50fziyqOlpdVHS0vrD5fXNu6trG/cXd3YuLOxubFrv8u2Z9vv2u/d2tzcvLWxtblra3t7c2Pbtne3tnY29va2t/f2d7b39ne29/d2d7f3dnZ29nZ2d3a3d3Z2d7Z39nZ2dvZ2d/b2d/d29nd3dvd39vdX93dX9/d31g/2dtb397bXD7a319nO9sHu9vr+3vb6IZ93v97d3V7d2d1a3dndXt3e3Vrd2dta3dndWt3Z3Vo92Nta+3d7X2//6z3b9+P/9N38n/5n/B6/97u9gzvb1oPtt53V/d39u/vbew939u9d2NrZt/29O3vbe7f39na27Xtur+9ub++a3Z2t3d1t29/Z2tnb2d7e2dne3t7Y2t7c2Nza3tjY2NrY2NjctO3Nje3Nja3tzY3tnc2N3V27d3tnc2PPrt/b2Nx9YH0BX3//9X/31X/76q//1//67/+4de2rneu3rh/YfRtbu9tb29sbW9vbG/Z9m9vb9vX21pZtu7vbG1vbmzvbW+GzZv+Ou/v2ebft++2+Lfss7+5u2u+E/bf1AH++Hv79+N79XbtPt+x32f3b2t6839nZfLBjv9/uz/b9lZ2tla8399Zt+5H17d81N47sP7cXOXj6/x9hGn3D1v32yldffbV/+/bt/Tt37uw/fPhw//79+/t//vOff/z666//eP369T/evn37x88++2zfglv4rrwt21/93u/tz+/bsv++h0+evt3f+v3O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" alt="Kythera Logo" class="logo">
+            <div class="tagline">Express Yourself Through Music</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bringing People Together Through Arts</h1>
+            <p>For almost 10 years, Kythera has been creating spaces where people can connect, express, and grow through music. Join us in building something beautiful.</p>
+        </div>
+    </section>
+
+    <!-- Thursday Jams Info -->
+    <section>
+        <div class="container">
+            <h2>Join Our Weekly Kythera Jam</h2>
+            <div class="jam-info">
+                <h3>Every Thursday • 7:30 - 9:30 PM</h3>
+                <p>A space to express yourself through music, make meaningful connections, and be part of a community where everyone belongs.</p>
+                <div class="jam-details">
+                    <div class="jam-detail">
+                        <strong>When</strong>
+                        <p>Thursdays<br>7:30 - 9:30 PM</p>
+                    </div>
+                    <div class="jam-detail">
+                        <strong>Where</strong>
+                        <p>Location shared upon registration</p>
+                    </div>
+                    <div class="jam-detail">
+                        <strong>Registration</strong>
+                        <p>Link shared every Monday evening</p>
+                    </div>
+                    <div class="jam-detail">
+                        <strong>Group Size</strong>
+                        <p>35-40 people max<br>(Intimate by design)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Principles -->
+    <section>
+        <div class="small-container">
+            <h2>How We Jam</h2>
+            <div class="principles">
+                <div class="principle-card">
+                    <h3>1. Contribute</h3>
+                    <p>Everyone who's present participates. This adds their flavor to the jam and makes it better for the whole.</p>
+                </div>
+                <div class="principle-card">
+                    <h3>2. Make Friends</h3>
+                    <p>We sit in a circle by design. We look at each other, smile at each other, and end up making new friends through Kythera Jams.</p>
+                </div>
+                <div class="principle-card">
+                    <h3>3. Everyone is an Amateur</h3>
+                    <p>Everyone in the circle is an equal. There is no artist, no audience. And whatever someone is doing, they're doing it right.</p>
+                </div>
+            </div>
+            <div class="founder-note">
+                <p>These are core to us. And therefore, not everyone likes our kind of jams. And that's okay. :)</p>
+                <p>I hope you join in this Thursday. I'm super excited to see you.</p>
+                <div class="founder-signature">
+                    — Atray<br>
+                    Founder at Kythera and Cosmic Essence Education
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Form -->
+    <section class="form-section">
+        <div class="small-container">
+            <h2>Get Involved</h2>
+            <div class="signup-form">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age *</label>
+                        <input type="number" id="age" name="age" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" name="location" placeholder="City, State" required>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label style="font-weight: 600; margin-bottom: 15px;">What are you interested in? * (Select all that apply)</label>
+                        
+                        <label>
+                            <input type="checkbox" name="interest" value="volunteer" id="volunteer">
+                            <span><strong>Volunteer with Kythera</strong> - Help with operations, social media, partnerships, documentation, or contribute in your own way</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="venue" id="venue">
+                            <span><strong>Host Kythera at my venue</strong> - I have a space (garden, café, hall, terrace, etc.) where Kythera Jam can happen</span>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="organization" id="organization">
+                            <span><strong>Bring Kythera to my organization</strong> - For employees, students, or members as a wellness or leadership activity</span>
+                        </label>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                    
+                    <div class="success-message" id="successMessage">
+                        Thank you! We'll be in touch with you soon. 🎵
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizations Section -->
+    <section class="organizations">
+        <div class="container">
+            <h2>Bring Kythera Jam to Your Organization</h2>
+            <p>We facilitate Kythera Jams for companies, educational institutions, and organizations - both as one-time engagements and long-term wellness activities.</p>
+            <p>Use Kythera Jam as a Leadership Development activity within your executive team.</p>
+            
+            <div class="org-benefits">
+                <div class="benefit">
+                    <h4>Improved Mood</h4>
+                    <p>Music and expression create positive emotional states</p>
+                </div>
+                <div class="benefit">
+                    <h4>Stronger Teams</h4>
+                    <p>Collaborative music-making builds connection and trust</p>
+                </div>
+                <div class="benefit">
+                    <h4>Better Understanding</h4>
+                    <p>Break down hierarchies and improve emotional intelligence across the organization</p>
+                </div>
+            </div>
+
+            <a href="mailto:kythera.city@gmail.com" class="email-link">Contact Us: kythera.city@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon">
+        <div class="small-container">
+            <h2>Coming Soon</h2>
+            <p>We're developing new ways to bring music wellness into your life.</p>
+            
+            <div class="waitlist-items">
+                <div class="waitlist-item">Music Wellness Workshops & Classes</div>
+                <div class="waitlist-item">Music Wellness Retreats</div>
+            </div>
+
+            <p style="margin-top: 40px; font-size: 1.1rem; color: var(--violet); font-weight: 500;">
+                Interested? Fill out the form above and mention your interest in the workshops or retreats!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Kythera. Bringing people together through arts since 2016.</p>
+            <p style="margin-top: 10px;">📧 kythera.city@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const location = document.getElementById('location').value;
+            
+            // Get selected interests
+            const interests = [];
+            document.querySelectorAll('input[name="interest"]:checked').forEach(checkbox => {
+                interests.push(checkbox.value);
+            });
+            
+            // Validate at least one interest is selected
+            if (interests.length === 0) {
+                alert('Please select at least one area of interest.');
+                return;
+            }
+            
+            // Here you would normally send this data to a server
+            // For now, we'll just show a success message
+            console.log({
+                name: name,
+                phone: phone,
+                age: age,
+                location: location,
+                interests: interests
+            });
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
