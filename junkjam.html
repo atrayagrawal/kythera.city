@@ -513,7 +513,25 @@
     font-family: 'Fraunces', serif;
   }
 
-  /* ── ANIMATIONS ── */
+  /* ── VIDEO SECTION ── */
+  .video-section { background: var(--ink); padding: 0; }
+
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -555,11 +573,11 @@
 
   <div class="hero-body">
     <div class="hero-tag">Parent–Child Workshop</div>
-    <h1>Backyard Junk<br><em>Jam</em></h1>
+    <h1>Backyard<br>Junk <em>Jam</em></h1>
     <p class="hero-desc">What if the best instrument your child ever plays is one they made from pebbles, twigs, and scraps — with you?</p>
     <div class="hero-meta">
-      <div class="meta-chip"><strong>26th April 2026</strong> · Morning</div>
-      <div class="meta-chip">90 minutes</div>
+      <div class="meta-chip"><strong>Sunday, 26th April 2026</strong></div>
+      <div class="meta-chip">8:30 – 10:00 am</div>
       <div class="meta-chip">Ages <strong>5–12</strong> + Parents</div>
       <div class="meta-chip">Jaipur, Rajasthan</div>
     </div>
@@ -585,6 +603,18 @@
       <p>No musical experience needed. No right answers. Just curiosity, found materials, and each other.</p>
       <p>We'll forage and build from things around us — pebbles, twigs, leaves, scraps — and then use them in a circle jam, exploring beats, rhythm, and the joy of making noise together. The experience, along with these small instruments, can be carried back home and recreated, helping relive memories and find music together.</p>
     </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section">
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/Zip2er57olk?autoplay=1&mute=1&loop=1&playlist=Zip2er57olk&controls=1&rel=0"
+      title="Backyard Junk Jam"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
@@ -657,7 +687,7 @@
       </div>
       <div class="fac-card reveal">
         <div class="fac-name">Vidushi Jain</div>
-        <div class="fac-role">Founder, Athine Batiyaaon Taabran · Mental Health Practitioner & Social Worker</div>
+        <div class="fac-role">Founder, Athine Batiyao Taabran · Mental Health Practitioner & Social Worker</div>
         <p class="fac-desc">Vidushi is a child mental health practitioner and social worker who works at the intersection of childhood, art, and well-being. With over eight years of experience, she brings both clinical depth and creative warmth to every space she holds.</p>
       </div>
     </div>
@@ -668,7 +698,7 @@
 <section class="register-section" id="register">
   <div class="section-label">Register</div>
   <h2 class="register-title">Ready to make some noise?</h2>
-  <p class="register-sub">26th April 2026 · Morning · Jaipur, Rajasthan<br>Spots are limited — this is a small circle by design.</p>
+  <p class="register-sub">Sunday, 26th April 2026 · 8:30 – 10:00 am · Jaipur, Rajasthan<br>Spots are limited — this is a small circle by design.</p>
   <div class="register-price"><strong>₹699</strong> per parent–child pair · All materials included</div>
   <a href="https://rzp.io/rzp/junkjam" target="_blank" rel="noopener noreferrer" class="register-btn">
     Book your spot →
